@@ -1,5 +1,5 @@
 ## Naziv projekta
-)U redak iznad navedite naziv projekta koji ste dobili za analizu!)
+(U redak iznad navedite naziv projekta koji ste dobili za analizu!)
 
 ## Podaci o studentu
 (Ispod promijenite samo drugi redak tablice!)
