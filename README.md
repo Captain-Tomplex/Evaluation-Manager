@@ -16,7 +16,7 @@ Thomas Anić   | tanic21@student.foi.hr | 0016152917 | tanic21-foi
 (Vlastitim riječima opišite zahtjeve za izradu ovog programskog proizvoda!)
 
 ## Zadatak
-(U root repozitorija učitajte zadatak koji ste dobili i potom ovdje stavite link na njegovo otvaranje!)
+Zadatak se nalazi na [linku]
 
 ## Resursi
 (Zadaće je obvezno predati u obliku Wiki stranica na ovom repozitoriju. Slike i druge artefakte koje ćete koristiti na wiki stranicama smjestite u mapu dokumentacije u repozitoriju!)
