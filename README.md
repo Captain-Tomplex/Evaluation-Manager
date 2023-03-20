@@ -1,8 +1,6 @@
-## Naziv projekta
-(U redak iznad navedite naziv projekta koji ste dobili za analizu!)
+## Korisnički zahtjevi - Upravljanje osobnim financijama
 
 ## Podaci o studentu
-(Ispod promijenite samo drugi redak tablice!)
 
 Ime i prezime | E-mail adresa (FOI)    |    JMBAG   | Github korisničko ime
 ------------  | ---------------------- | ---------- | ---------------------
