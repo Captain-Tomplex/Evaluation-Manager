@@ -58,6 +58,7 @@
     <Compile Include="FrmTroskovi.Designer.cs">
       <DependentUpon>FrmTroskovi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\KategorijaTroska.cs" />
     <Compile Include="Models\Trosak.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
