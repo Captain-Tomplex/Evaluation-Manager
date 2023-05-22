@@ -12,6 +12,7 @@ namespace Shparfin
 {
     public partial class FrmLogin : Form
     {
+        string pin = "2132";
         public FrmLogin()
         {
             InitializeComponent();
@@ -25,6 +26,28 @@ namespace Shparfin
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtPin.Text == "")
+            {
+                MessageBox.Show("Pin nije unesen!", "Problem",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+            else
+            {
+                if (txtPin.Text == pin)
+                {
+                    MessageBox.Show("Dobrodošli!", "Prijavljeni ste",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Krivi pin unesen!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
