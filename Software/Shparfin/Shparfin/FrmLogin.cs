@@ -42,6 +42,11 @@ namespace Shparfin
                 {
                     MessageBox.Show("Dobrodošli!", "Prijavljeni ste",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    FrmTroskovi frmTroskovi = new FrmTroskovi();
+                    Hide();
+                    frmTroskovi.ShowDialog();
+                    Close();
                 }
                 else
                 {
