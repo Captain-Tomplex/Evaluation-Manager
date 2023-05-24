@@ -10,8 +10,6 @@ namespace Shparfin.Models
     {
         public int Id { get; set; }
 
-        public string Kategorija { get; set; }
-
         public string Komentar {get; set; }
 
         public int Iznos { get; set; }

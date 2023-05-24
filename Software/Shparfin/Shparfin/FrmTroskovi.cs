@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Shparfin.Models;
+using Shparfin.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,22 @@ namespace Shparfin
         public FrmTroskovi()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void FrmTroskovi_Load(object sender, EventArgs e)
+        {
+            ShowTroskove();
+        }
+
+        private void ShowTroskove()
+        {
+            List<Trosak> troskovi = TrosakRepository.GetTroskove();
+            dgvTrosak.DataSource = troskovi;
         }
     }
 }

@@ -12,10 +12,27 @@ namespace Shparfin.Repositories
     public class TrosakRepository
     {
 
+        public static Trosak GetTrosak(int id)
+        {
+            Trosak trosak = null;
+            string sql = $"SELECT * FROM Trosak WHERE idTrosak = {id}";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                trosak = CreateObject(reader);
+                reader.Close();
+            }
+            DB.CloseConnection();
+            return trosak;
+        }
+
+
         public static List<Trosak> GetTroskove()
         {
             List<Trosak> troskovi = new List<Trosak>();
-            string sql = "SELECT * FROM Students";
+            string sql = "SELECT * FROM Trosak";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
@@ -30,8 +47,7 @@ namespace Shparfin.Repositories
 
         public static Trosak CreateObject(SqlDataReader reader)
         {
-            int id = int.Parse(reader["Id"].ToString());
-            string kategorija = reader["Kategorija"].ToString();
+            int id = int.Parse(reader["idTrosak"].ToString());
             string komentar = reader["Komentar"].ToString();
             int iznos = int.Parse(reader["Iznos"].ToString());
             DateTime datum = DateTime.Parse(reader["Datum"].ToString());
@@ -39,14 +55,14 @@ namespace Shparfin.Repositories
             var trosak = new Trosak
             {
                 Id = id,
-                Kategorija = kategorija,
                 Komentar = komentar,
                 Iznos = iznos,
                 Datum = datum
             };
             return trosak;
+
         }
 
-
+        
     }
 }
