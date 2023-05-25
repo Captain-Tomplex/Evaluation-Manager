@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Shparfin
 {
-    public partial class FrmTroskovi : Form
+    public partial class FrmPrikaz : Form
     {
-        public FrmTroskovi()
+        public FrmPrikaz()
         {
             InitializeComponent();
         }
@@ -29,9 +29,9 @@ namespace Shparfin
 
         private void FrmTroskovi_Load(object sender, EventArgs e)
         {
-            ShowKategorije();
-            ShowTroskove();
             
+            ShowTroskove();
+            ShowPrihode();
 
             dgvTrosak.Columns["IdKategorijaTrosak"].DisplayIndex = 0;
             dgvTrosak.Columns["IdKategorijaTrosak"].HeaderText = "Šifra";
@@ -50,14 +50,26 @@ namespace Shparfin
             dgvTrosak.DataSource = troskovi;
         }
 
-        private void ShowKategorije()
+        private void ShowPrihode()
         {
-            List<KategorijaTrosak> kategorije = KategorijaRepository.GetKategorije();
-            dgvTrosak.DataSource = kategorije;
+            List<Prihod> prihodi = PrihodRepository.GetPrihode();
+            dgvPrihod.DataSource = prihodi;
         }
 
 
+
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPrihod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
