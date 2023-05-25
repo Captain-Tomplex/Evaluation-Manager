@@ -8,12 +8,15 @@ namespace Shparfin.Models
 {
     public class Trosak
     {
-        public int Id { get; set; }
+        public int IdTrosak { get; set; }
 
         public string Komentar {get; set; }
 
         public int Iznos { get; set; }
 
         public DateTime Datum { get; set; }
+
+        public int IdKategorijaTrosak { get; set; }
+
     }
 }

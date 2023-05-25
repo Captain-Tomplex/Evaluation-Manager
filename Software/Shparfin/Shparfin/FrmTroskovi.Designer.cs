@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvTrosak = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrosak)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,11 +43,22 @@
             this.dgvTrosak.TabIndex = 0;
             this.dgvTrosak.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(630, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Unesi novi trošak";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmTroskovi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvTrosak);
             this.Name = "FrmTroskovi";
             this.Text = "FrmTroskovi";
@@ -59,5 +71,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvTrosak;
+        private System.Windows.Forms.Button button1;
     }
 }

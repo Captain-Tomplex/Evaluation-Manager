@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Shparfin.Models
 {
-    public class Korisnik
+    public class KategorijaTrosak
     {
-        public int Id { get; set; }
+        public int IdKategorijaTrosak { get; set; }
 
-        public string Pin { get; set; }
+        public string Naziv { get; set; }
 
-        public string Uloga { get; set; }
+        
     }
 }
