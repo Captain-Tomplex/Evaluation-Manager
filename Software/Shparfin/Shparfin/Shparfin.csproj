@@ -71,6 +71,9 @@
     <Compile Include="Repositories\KategorijaTrosakRepository.cs" />
     <Compile Include="Repositories\PrihodRepository.cs" />
     <Compile Include="Repositories\TrosakRepository.cs" />
+    <EmbeddedResource Include="FrmDodajTrosak.resx">
+      <DependentUpon>FrmDodajTrosak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

@@ -32,7 +32,7 @@ namespace Shparfin
         {
             if (txtPin.Text == "")
             {
-                MessageBox.Show("Pin nije unesen!", "Problem",
+                MessageBox.Show("Pin nije unesen!", "Upozorenje",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
@@ -50,7 +50,8 @@ namespace Shparfin
                 }
                 else
                 {
-                    MessageBox.Show("Krivi pin unesen!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krivi pin unesen!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
         }
