@@ -27,11 +27,7 @@ namespace Shparfin
         private void FrmTroskovi_Load(object sender, EventArgs e)
         {
             ShowTroskove();
-
-
         }
-
-
 
         private void ShowTroskove()
         {
@@ -57,28 +53,11 @@ namespace Shparfin
         {
             FrmDodajTrosak frmDodajTrosak = new FrmDodajTrosak();
             frmDodajTrosak.ShowDialog();
-   
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
-        private void btnPretraga_Click(object sender, EventArgs e)
-        {
-            Pretraga();
-            dgvTrosak.Columns["IdTrosak"].Visible = false;
-            dgvTrosak.Columns["Komentar"].DisplayIndex = 3;
-            dgvTrosak.Columns["Iznos"].DisplayIndex = 4;
-            dgvTrosak.Columns["Iznos"].HeaderText = "Iznos (kn)";
-            dgvTrosak.Columns["Datum"].DisplayIndex = 5;
-            dgvTrosak.Columns["IdPodKategorijaTrosak"].DisplayIndex = 1;
-            dgvTrosak.Columns["IDPodKategorijaTrosak"].HeaderText = "Šifra pod kategorije";
-            dgvTrosak.Columns["IdKorisnik"].Visible = false;
-            dgvTrosak.Columns["IDKategorijaTrosak"].DisplayIndex = 0;
-            dgvTrosak.Columns["IDKategorijaTrosak"].HeaderText = "Šifra kategorije";
-        }
 
 
         private void Pretraga()
@@ -93,7 +72,49 @@ namespace Shparfin
 
         private void btnIzbrisiTrosak_Click(object sender, EventArgs e)
         {
-           DialogResult result = MessageBox.Show("Jeste li sigurni da želite izbrisati odabrani trošak?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Jeste li sigurni da želite izbrisati odabrani trošak?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (dgvTrosak.SelectedRows.Count > 0)
+                {
+                    Trosak selectedTrosak = dgvTrosak.SelectedRows[0].DataBoundItem as Trosak;
+
+                    TrosakRepository.DeleteTrosak(selectedTrosak);
+
+                    dgvTrosak.DataSource = null;
+                    ShowTroskove();
+                }
+
+                else
+                {
+                    MessageBox.Show("Niste odabrali trošak!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnPretraga_Click_1(object sender, EventArgs e)
+        {
+            {
+                Pretraga();
+
+                
+                dgvTrosak.Columns["IdTrosak"].Visible = false;
+                dgvTrosak.Columns["Komentar"].DisplayIndex = 3;
+                dgvTrosak.Columns["Iznos"].DisplayIndex = 4;
+                dgvTrosak.Columns["Iznos"].HeaderText = "Iznos (kn)";
+                dgvTrosak.Columns["Datum"].DisplayIndex = 5;
+                dgvTrosak.Columns["IdPodKategorijaTrosak"].DisplayIndex = 1;
+                dgvTrosak.Columns["IDPodKategorijaTrosak"].HeaderText = "Šifra pod kategorije";
+                dgvTrosak.Columns["IdKorisnik"].Visible = false;
+                dgvTrosak.Columns["IDKategorijaTrosak"].DisplayIndex = 0;
+                dgvTrosak.Columns["IDKategorijaTrosak"].HeaderText = "Šifra kategorije";
+            }
+        }
+
+        private void btnIzbrisiTrosak_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Jeste li sigurni da želite izbrisati odabrani trošak?", "Potvrda", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {

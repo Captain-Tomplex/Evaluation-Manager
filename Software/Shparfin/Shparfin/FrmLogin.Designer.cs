@@ -1,4 +1,6 @@
-﻿namespace Shparfin
+﻿using System;
+
+namespace Shparfin
 {
     partial class FrmLogin
     {
@@ -79,6 +81,8 @@
             this.PerformLayout();
 
         }
+
+        
 
         #endregion
 

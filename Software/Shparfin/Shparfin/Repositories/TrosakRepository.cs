@@ -51,9 +51,9 @@ namespace Shparfin.Repositories
             string komentar = reader["Komentar"].ToString();
             int iznos = int.Parse(reader["Iznos"].ToString());
             DateTime datum = DateTime.Parse(reader["Datum"].ToString());
+            int idKategorijaTrosak = int.Parse(reader["IdKategorijaTrosak"].ToString());
             int idPodKategorijaTrosak = int.Parse(reader["IdPodKategorijaTrosak"].ToString());
             int idKorisnik = int.Parse(reader["IdKorisnik"].ToString());
-            int idKategorijaTrosak = int.Parse(reader["IdKategorijaTrosak"].ToString());
 
             var trosak = new Trosak
             {
@@ -61,15 +61,15 @@ namespace Shparfin.Repositories
                 Komentar = komentar,
                 Iznos = iznos,
                 Datum = datum,
+                IdKategorijaTrosak = idKategorijaTrosak,
                 IdPodKategorijaTrosak = idPodKategorijaTrosak,
-                IdKorisnik = idKorisnik,
-                IdKategorijaTrosak = idKategorijaTrosak
+                IdKorisnik = idKorisnik
             };
             return trosak;
 
         }
 
-        public static void InsertTrosak(int idTrosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak , int idKategorijaTrosak)
+        public static void InsertTrosak(int idTrosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
         {
             int idKorisnik = 1;
 
@@ -84,7 +84,7 @@ namespace Shparfin.Repositories
 
         public static void UpdateTrosak(Trosak trosak, int idTrosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
         {
-            string formatDatum = datum.ToString("MM-dd-yyyy"); 
+            string formatDatum = datum.ToString("MM-dd-yyyy");
 
             string sql = $"UPDATE Trosak SET IdTrosak = {idTrosak}, Komentar = '{komentar}', Iznos = '{iznos}', Datum = '{formatDatum}', IdPodKategorijaTrosak = {idPodKategorijaTrosak}, IdKategorijaTrosak = {idKategorijaTrosak} WHERE IdTrosak = {trosak.IdTrosak}";
             DB.OpenConnection();

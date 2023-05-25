@@ -16,7 +16,12 @@ namespace Shparfin.Models
 
         public DateTime Datum { get; set; }
 
-        public int IdKategorijaTrosak { get; set; }
+        public int IdPodKategorijaTrosak { get; set; }
+
+        public int IdKorisnik { get; set; }
+
+        public int IdKategorijaTrosak {get; set; }
+
 
     }
 }

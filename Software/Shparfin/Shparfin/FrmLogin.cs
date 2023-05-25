@@ -35,7 +35,7 @@ namespace Shparfin
                 MessageBox.Show("Pin nije unesen!", "Upozorenje",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
             else
             {
                 if (txtPin.Text == pin)
@@ -43,14 +43,14 @@ namespace Shparfin
                     MessageBox.Show("Dobrodošli!", "Prijavljeni ste",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    FrmPrikaz frmTroskovi = new FrmPrikaz();
+                    FrmTroskovi frmTroskovi = new FrmTroskovi();
                     Hide();
                     frmTroskovi.ShowDialog();
                     Close();
                 }
                 else
                 {
-                    MessageBox.Show("Krivi pin unesen!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Krivi pin unesen!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
             }
