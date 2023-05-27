@@ -23,12 +23,22 @@ namespace Shparfin
         public FrmDodajTrosak()
         {
             InitializeComponent();
-            List<KategorijaTrosak> categories = KategorijaTrosakRepository.GetKategorije().ToList();
-            cboKategorija.DataSource = categories;
+            DisplayKategorije();
+            DisplayPodkategorije();
+        }
+
+        private void DisplayKategorije()
+        {
+            List<KategorijaTrosak> kategorije = KategorijaTrosakRepository.GetKategorije().ToList();
+            cboKategorija.DataSource = kategorije;
             cboKategorija.DisplayMember = "Naziv";
             cboKategorija.ValueMember = "IDKategorijaTrosak";
         }
 
+        private void DisplayPodkategorije()
+        {
+
+        }
 
         private void btnDodajForma_Click(object sender, EventArgs e)
         {
