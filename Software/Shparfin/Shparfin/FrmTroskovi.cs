@@ -134,5 +134,20 @@ namespace Shparfin
                 }
             }
         }
+
+        private void btnAzurirajTrosak_Click(object sender, EventArgs e)
+        {
+            Trosak updatedTrosak = dgvTrosak.CurrentRow.DataBoundItem as Trosak;   
+            
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            // Create an instance of FrmDodajTrosak
+            FrmDodajTrosak frmDodajTrosak = new FrmDodajTrosak();
+
+            // Display the FrmDodajTrosak form
+            frmDodajTrosak.Show();
+        }
     }
 }

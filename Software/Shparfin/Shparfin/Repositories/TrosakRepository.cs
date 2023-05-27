@@ -69,12 +69,12 @@ namespace Shparfin.Repositories
 
         }
 
-        public static void InsertTrosak(int idTrosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
+        public static void InsertTrosak(string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
         {
             int idKorisnik = 1;
 
-            string sql = $"INSERT INTO Trosak (IdTrosak, Komentar, Iznos, Datum, IdPodKategorijaTrosak, IdKorisnik, IdKategorijaTrosak) " +
-                         $"VALUES ('{idTrosak}', '{komentar}', '{iznos}', '{datum}', '{idPodKategorijaTrosak}', '{idKorisnik}', '{idKategorijaTrosak}')";
+            string sql = $"INSERT INTO Trosak (Komentar, Iznos, Datum, IdPodKategorijaTrosak, IdKorisnik, IdKategorijaTrosak) " +
+                         $"VALUES ('{komentar}', '{iznos}', '{datum}', '{idPodKategorijaTrosak}', '{idKorisnik}', '{idKategorijaTrosak}')";
 
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
@@ -82,11 +82,11 @@ namespace Shparfin.Repositories
         }
 
 
-        public static void UpdateTrosak(Trosak trosak, int idTrosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
+        public static void UpdateTrosak(Trosak trosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
         {
-            string formatDatum = datum.ToString("MM-dd-yyyy");
+            string formatDatum = datum.ToString("dd-MM-yyyy");
 
-            string sql = $"UPDATE Trosak SET IdTrosak = {idTrosak}, Komentar = '{komentar}', Iznos = '{iznos}', Datum = '{formatDatum}', IdPodKategorijaTrosak = {idPodKategorijaTrosak}, IdKategorijaTrosak = {idKategorijaTrosak} WHERE IdTrosak = {trosak.IdTrosak}";
+            string sql = $"UPDATE Trosak SET Komentar = '{komentar}', Iznos = '{iznos}', Datum = '{formatDatum}', IdPodKategorijaTrosak = {idPodKategorijaTrosak}, IdKategorijaTrosak = {idKategorijaTrosak} WHERE IdTrosak = {trosak.IdTrosak}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

@@ -8,7 +8,7 @@ namespace Shparfin.Models
 {
     public class KategorijaTrosak
     {
-        public int Id { get; set; }
+        public int IdKategorijaTrosak { get; set; }
 
         public string Naziv { get; set; }
     }
