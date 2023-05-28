@@ -35,6 +35,7 @@
             this.btnAzurirajTrosak = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.lblPretraga = new System.Windows.Forms.Label();
+            this.btnPrijava = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrosak)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +105,22 @@
             this.lblPretraga.TabIndex = 6;
             this.lblPretraga.Text = "Pretraga po kategoriji:";
             // 
+            // btnPrijava
+            // 
+            this.btnPrijava.Location = new System.Drawing.Point(659, 459);
+            this.btnPrijava.Name = "btnPrijava";
+            this.btnPrijava.Size = new System.Drawing.Size(95, 36);
+            this.btnPrijava.TabIndex = 7;
+            this.btnPrijava.Text = "Uključi/isključi prijavu";
+            this.btnPrijava.UseVisualStyleBackColor = true;
+            this.btnPrijava.Click += new System.EventHandler(this.btnPrijava_Click);
+            // 
             // FrmTroskovi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 507);
+            this.Controls.Add(this.btnPrijava);
             this.Controls.Add(this.lblPretraga);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.btnAzurirajTrosak);
@@ -134,5 +146,6 @@
         private System.Windows.Forms.Button btnAzurirajTrosak;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Label lblPretraga;
+        private System.Windows.Forms.Button btnPrijava;
     }
 }

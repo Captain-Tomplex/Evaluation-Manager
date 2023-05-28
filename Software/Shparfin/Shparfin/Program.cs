@@ -1,4 +1,6 @@
 ﻿using DBLayer;
+using Shparfin.Models;
+using Shparfin.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +20,20 @@ namespace Shparfin
 
             DB.SetConfiguration("IPS23_tanic21", "tanic21", "7_2a_Jqj");
 
+            Korisnik k = KorisnikRepository.GetKorisnik();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
-            
+            if(k.Prijava == 1)
+            {
+                Application.Run(new FrmLogin());
+            }
+            else
+            {
+                Application.Run(new FrmTroskovi());
+            }
+
+
         }
     }
 }

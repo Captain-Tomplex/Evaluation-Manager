@@ -81,6 +81,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\KategorijaTrosakRepository.cs" />
+    <Compile Include="Repositories\KorisnikRepository.cs" />
     <Compile Include="Repositories\PodKategorijaTrosakRepository.cs" />
     <Compile Include="Repositories\TrosakRepository.cs" />
     <EmbeddedResource Include="FrmAzurirajTrosak.resx">

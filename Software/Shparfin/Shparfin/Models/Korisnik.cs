@@ -8,9 +8,9 @@ namespace Shparfin.Models
 {
     public class Korisnik
     {
-        public int Id { get; set; }
+        public int IdKorisnik { get; set; }
 
-        public string Pin { get; set; }
+        public int Prijava { get; set; }
 
         public string Uloga { get; set; }
     }

@@ -164,5 +164,29 @@ namespace Shparfin
         {
             
         }
+
+        private void btnPrijava_Click(object sender, EventArgs e)
+        {
+            Korisnik korisnik = new Korisnik();
+            korisnik.IdKorisnik = 1;
+            korisnik.Uloga = "Manager";
+
+            Korisnik dohvaceni = KorisnikRepository.GetKorisnik();
+            if(dohvaceni.Prijava == 1)
+            {
+                korisnik.Prijava = 0;
+
+                MessageBox.Show("Isključili ste prijavu");
+            }
+            else
+            {
+                korisnik.Prijava = 1;
+                MessageBox.Show("Uključili ste prijavu");
+            }
+
+            KorisnikRepository.UpdateKorisnik(korisnik);
+
+            
+        }
     }
 }
