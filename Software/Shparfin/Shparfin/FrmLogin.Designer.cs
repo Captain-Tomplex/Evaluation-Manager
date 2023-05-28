@@ -37,9 +37,9 @@ namespace Shparfin
             // 
             // txtPin
             // 
-            this.txtPin.Location = new System.Drawing.Point(130, 70);
+            this.txtPin.Location = new System.Drawing.Point(143, 70);
             this.txtPin.Name = "txtPin";
-            this.txtPin.Size = new System.Drawing.Size(100, 20);
+            this.txtPin.Size = new System.Drawing.Size(73, 20);
             this.txtPin.TabIndex = 0;
             this.txtPin.UseSystemPasswordChar = true;
             this.txtPin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

@@ -47,8 +47,8 @@ namespace Shparfin
             dgvTrosak.Columns["IdPodKategorijaTrosak"].DisplayIndex = 1;
             dgvTrosak.Columns["IdPodKategorijaTrosak"].HeaderText = "Šifra pod kategorije";
             dgvTrosak.Columns["IdKorisnik"].Visible = false;
-            
-            
+
+            Calculate();
 
         }
 
@@ -58,9 +58,6 @@ namespace Shparfin
             frmDodajTrosak.ShowDialog();
 
         }
-
-        
-
 
 
         private void Pretraga()
@@ -187,6 +184,29 @@ namespace Shparfin
             KorisnikRepository.UpdateKorisnik(korisnik);
 
             
+        }
+
+
+        private void Calculate()
+        {
+            int total = 0;
+            foreach (DataGridViewRow row in dgvTrosak.Rows)
+            {
+                int id = int.Parse(row.Cells["IdPodKategorijaTrosak"].Value.ToString());
+                PodKategorijaTrosak kat = PodKategorijaTrosakRepository.GetPodKategorija(id);
+
+                if(kat.Prihod == 1)
+                {
+                    total += int.Parse(row.Cells["Iznos"].Value.ToString());
+                }
+                else
+                {
+                    total -= int.Parse(row.Cells["Iznos"].Value.ToString());
+                }
+                
+            }
+
+            txtBalans.Text = total.ToString();
         }
     }
 }

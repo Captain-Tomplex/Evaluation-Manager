@@ -151,7 +151,7 @@
             this.Controls.Add(this.cboPodkategorija);
             this.Controls.Add(this.cboKategorija);
             this.Name = "FrmDodajTrosak";
-            this.Text = "FrmDodajTrosak";
+            this.Text = "Dodavanje troška";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -11,5 +11,7 @@ namespace Shparfin.Models
         public int IdPodKategorijaTrosak { get; set; }
 
         public string Naziv { get; set; }
+
+        public int Prihod { get; set; }
     }
 }

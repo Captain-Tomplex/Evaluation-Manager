@@ -11,6 +11,24 @@ namespace Shparfin.Repositories
 {
     public class PodKategorijaTrosakRepository
     {
+
+        public static PodKategorijaTrosak GetPodKategorija(int id)
+        {
+            PodKategorijaTrosak podkategorija = new PodKategorijaTrosak();
+            string sql = $"SELECT * FROM PodKategorijaTrosak WHERE IdPodKategorijaTrosak = {id}";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                podkategorija = CreateObject(reader);
+
+            }
+            reader.Close();
+            DB.CloseConnection();
+            return podkategorija;
+        }
+
+
         public static List<PodKategorijaTrosak> GetPodKategorije()
         {
             List<PodKategorijaTrosak> podkategorije = new List<PodKategorijaTrosak>();
@@ -31,13 +49,14 @@ namespace Shparfin.Repositories
         {
             int idPodKategorijaTrosak = int.Parse(reader["IdPodKategorijaTrosak"].ToString());
             string naziv = reader["NazivPodKategorijaTrosak"].ToString();
-
+            int prihod = int.Parse(reader["Prihod"].ToString());
 
 
             var podkategorija = new PodKategorijaTrosak
             {
                 IdPodKategorijaTrosak = idPodKategorijaTrosak,
-                Naziv = naziv
+                Naziv = naziv,
+                Prihod = prihod
 
             };
             return podkategorija;

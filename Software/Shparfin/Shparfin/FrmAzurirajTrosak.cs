@@ -94,13 +94,26 @@ namespace Shparfin
                 }
             }
 
-            azurirani.IdKategorijaTrosak = kategorija.IdKategorijaTrosak;
-            azurirani.IdPodKategorijaTrosak = podkategorija.IdPodKategorijaTrosak;
-            azurirani.Komentar = txtKomentar.Text;
-            azurirani.Iznos = int.Parse(txtIznos.Text);
-            azurirani.Datum = dtpDatum.Value;
-            TrosakRepository.UpdateTrosak(azurirani);
-            this.Close();
+
+            try
+            {
+                int iznos = int.Parse(txtIznos.Text);
+
+                azurirani.IdKategorijaTrosak = kategorija.IdKategorijaTrosak;
+                azurirani.IdPodKategorijaTrosak = podkategorija.IdPodKategorijaTrosak;
+                azurirani.Komentar = txtKomentar.Text;
+                azurirani.Iznos = iznos;
+                azurirani.Datum = dtpDatum.Value;
+                TrosakRepository.UpdateTrosak(azurirani);
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Krivo unesen iznos!");
+            }
+
+            
 
         }
 

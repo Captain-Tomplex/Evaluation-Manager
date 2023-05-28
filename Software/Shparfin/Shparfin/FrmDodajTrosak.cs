@@ -17,7 +17,7 @@ namespace Shparfin
     public partial class FrmDodajTrosak : Form
     {
         private string komentar;
-        private string iznos;
+        private int iznos;
         private DateTime datum;
         private int idPodKategorijaTrosak;
         private int idKategorijaTrosak;
@@ -47,44 +47,33 @@ namespace Shparfin
 
         private void btnDodajForma_Click(object sender, EventArgs e)
         {
+
+
             komentar = txtKomentar.Text;
-            iznos = txtIznos.Text;
+            try
+            {
+                iznos = int.Parse(txtIznos.Text);
+
+                datum = DateTime.Parse(dtpDatum.Value.ToString());
+                idPodKategorijaTrosak = (int)cboPodkategorija.SelectedValue;
+                idKategorijaTrosak = (int)cboKategorija.SelectedValue;
+
+                TrosakRepository.InsertTrosak(komentar, iznos.ToString(), datum, idPodKategorijaTrosak, idKategorijaTrosak);
+
+
+
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Krivo unesen iznos!");
+            }
             
-            datum = DateTime.Parse(dtpDatum.Value.ToString());
-            idPodKategorijaTrosak = (int)cboPodkategorija.SelectedValue;
-            idKategorijaTrosak = (int)cboKategorija.SelectedValue;
-
-            // Call the InsertTrosak method from TrosakRepository
-            TrosakRepository.InsertTrosak(komentar, iznos, datum, idPodKategorijaTrosak, idKategorijaTrosak);
-
-            // Close the form or perform additional actions as needed
-            this.Close();
+            
+            
 
         }
 
-        
-
-        /* private List<PodKategorijaTrosak> GetAllowedPodkategorije(int selectedKategorijaId)
-         {
-             List<PodKategorijaTrosak> allowedPodkategorije = new List<PodKategorijaTrosak>();
-
-             // Assuming you have a list of Podkategorija objects available, filter them based on the selected kategorija
-             foreach (PodKategorijaTrosak podkategorija in PodKategorijaTrosak)
-             {
-                 if (selectedKategorijaId == 1 && (podkategorija.IdPodKategorijaTrosak == 11 || podkategorija.IdPodKategorijaTrosak == 12))
-                 {
-                     allowedPodkategorije.Add(podkategorija);
-                 }
-                 // Add other conditions for different kategorija values and their corresponding allowed podkategorije
-                 else if (selectedKategorijaId == 2 && (podkategorija.IdPodKategorijaTrosak == 21 || podkategorija.IdPodKategorijaTrosak == 22))
-                 {
-                     allowedPodkategorije.Add(podkategorija);
-                 }
-                 // Add more conditions as needed for other kategorija values
-             }
-
-             return allowedPodkategorije;
-         }
-     */
+     
     }
 }

@@ -151,7 +151,7 @@
             this.Controls.Add(this.cboPodkategorija);
             this.Controls.Add(this.cboKategorija);
             this.Name = "FrmAzurirajTrosak";
-            this.Text = "FrmAzurirajTrosak";
+            this.Text = "Ažuriranje troška";
             this.Load += new System.EventHandler(this.FrmAzurirajTrosak_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
