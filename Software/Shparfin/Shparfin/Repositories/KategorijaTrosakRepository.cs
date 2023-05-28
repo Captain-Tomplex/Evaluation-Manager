@@ -27,6 +27,22 @@ namespace Shparfin.Repositories
             return kategorije;
         }
 
+        public static KategorijaTrosak GetKategorija(int id)
+        {
+            KategorijaTrosak kategorija = new KategorijaTrosak();
+            string sql = $"SELECT * FROM KategorijaTrosak WHERE idKategorijaTrosak = {id}";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                kategorija = CreateObject(reader);
+                
+            }
+            reader.Close();
+            DB.CloseConnection();
+            return kategorija;
+        }
+
         public static KategorijaTrosak CreateObject(SqlDataReader reader)
         {
             int idKategorijaTrosak = int.Parse(reader["idKategorijaTrosak"].ToString());

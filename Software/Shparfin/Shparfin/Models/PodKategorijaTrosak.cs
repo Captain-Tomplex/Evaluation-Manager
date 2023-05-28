@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Shparfin.Models
 {
-    internal class PodKategorijaTrosak
+    public class PodKategorijaTrosak
     {
+        public int IdPodKategorijaTrosak { get; set; }
+
+        public string Naziv { get; set; }
     }
 }

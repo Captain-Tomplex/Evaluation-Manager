@@ -6,9 +6,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace Shparfin
 {
@@ -37,15 +39,19 @@ namespace Shparfin
 
         private void DisplayPodkategorije()
         {
-
+            List<PodKategorijaTrosak> podkategorije = PodKategorijaTrosakRepository.GetPodKategorije().ToList();
+            cboPodkategorija.DataSource = podkategorije;
+            cboPodkategorija.DisplayMember = "Naziv";
+            cboPodkategorija.ValueMember = "IDPodKategorijaTrosak";
         }
 
         private void btnDodajForma_Click(object sender, EventArgs e)
         {
             komentar = txtKomentar.Text;
             iznos = txtIznos.Text;
-            datum = dtpDatum.Value;
-           // idPodKategorijaTrosak = (int)cboPodkategorija.SelectedValue;
+            
+            datum = DateTime.Parse(dtpDatum.Value.ToString());
+            idPodKategorijaTrosak = (int)cboPodkategorija.SelectedValue;
             idKategorijaTrosak = (int)cboKategorija.SelectedValue;
 
             // Call the InsertTrosak method from TrosakRepository
@@ -55,5 +61,30 @@ namespace Shparfin
             this.Close();
 
         }
+
+        
+
+        /* private List<PodKategorijaTrosak> GetAllowedPodkategorije(int selectedKategorijaId)
+         {
+             List<PodKategorijaTrosak> allowedPodkategorije = new List<PodKategorijaTrosak>();
+
+             // Assuming you have a list of Podkategorija objects available, filter them based on the selected kategorija
+             foreach (PodKategorijaTrosak podkategorija in PodKategorijaTrosak)
+             {
+                 if (selectedKategorijaId == 1 && (podkategorija.IdPodKategorijaTrosak == 11 || podkategorija.IdPodKategorijaTrosak == 12))
+                 {
+                     allowedPodkategorije.Add(podkategorija);
+                 }
+                 // Add other conditions for different kategorija values and their corresponding allowed podkategorije
+                 else if (selectedKategorijaId == 2 && (podkategorija.IdPodKategorijaTrosak == 21 || podkategorija.IdPodKategorijaTrosak == 22))
+                 {
+                     allowedPodkategorije.Add(podkategorija);
+                 }
+                 // Add more conditions as needed for other kategorija values
+             }
+
+             return allowedPodkategorije;
+         }
+     */
     }
 }

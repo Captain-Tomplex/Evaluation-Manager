@@ -71,10 +71,12 @@ namespace Shparfin.Repositories
 
         public static void InsertTrosak(string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
         {
+
             int idKorisnik = 1;
 
             string sql = $"INSERT INTO Trosak (Komentar, Iznos, Datum, IdPodKategorijaTrosak, IdKorisnik, IdKategorijaTrosak) " +
-                         $"VALUES ('{komentar}', '{iznos}', '{datum}', '{idPodKategorijaTrosak}', '{idKorisnik}', '{idKategorijaTrosak}')";
+                         $"VALUES ('{komentar}', '{iznos}', '{datum.ToString("yyyy-MM-dd")}', '{idPodKategorijaTrosak}', '{idKorisnik}', '{idKategorijaTrosak}')";
+
 
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
@@ -82,11 +84,10 @@ namespace Shparfin.Repositories
         }
 
 
-        public static void UpdateTrosak(Trosak trosak, string komentar, string iznos, DateTime datum, int idPodKategorijaTrosak, int idKategorijaTrosak)
-        {
-            string formatDatum = datum.ToString("dd-MM-yyyy");
+        public static void UpdateTrosak(Trosak trosak)
+        {           
 
-            string sql = $"UPDATE Trosak SET Komentar = '{komentar}', Iznos = '{iznos}', Datum = '{formatDatum}', IdPodKategorijaTrosak = {idPodKategorijaTrosak}, IdKategorijaTrosak = {idKategorijaTrosak} WHERE IdTrosak = {trosak.IdTrosak}";
+            string sql = $"UPDATE Trosak SET Komentar = '{trosak.Komentar}', Iznos = '{trosak.Iznos}', Datum = '{trosak.Datum.ToString("yyyy-MM-dd")}', IdPodKategorijaTrosak = {trosak.IdPodKategorijaTrosak}, IdKategorijaTrosak = {trosak.IdKategorijaTrosak} WHERE IdTrosak = {trosak.IdTrosak}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

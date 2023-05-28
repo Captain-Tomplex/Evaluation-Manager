@@ -73,6 +73,7 @@
             // 
             // dtpDatum
             // 
+            this.dtpDatum.CustomFormat = "dd.MM.yyyy.";
             this.dtpDatum.Location = new System.Drawing.Point(98, 296);
             this.dtpDatum.Name = "dtpDatum";
             this.dtpDatum.Size = new System.Drawing.Size(121, 20);

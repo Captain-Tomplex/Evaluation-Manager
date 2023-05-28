@@ -27,6 +27,8 @@ namespace Shparfin
         private void FrmTroskovi_Load(object sender, EventArgs e)
         {
             ShowTroskove();
+
+            
         }
 
         private void ShowTroskove()
@@ -40,12 +42,13 @@ namespace Shparfin
             dgvTrosak.Columns["Iznos"].DisplayIndex = 4;
             dgvTrosak.Columns["Iznos"].HeaderText = "Iznos (kn)";
             dgvTrosak.Columns["Datum"].DisplayIndex = 5;
+            dgvTrosak.Columns["IdKategorijaTrosak"].DisplayIndex = 0;
+            dgvTrosak.Columns["IdKategorijaTrosak"].HeaderText = "Šifra kategorije";
             dgvTrosak.Columns["IdPodKategorijaTrosak"].DisplayIndex = 1;
-            dgvTrosak.Columns["IDPodKategorijaTrosak"].HeaderText = "Šifra pod kategorije";
+            dgvTrosak.Columns["IdPodKategorijaTrosak"].HeaderText = "Šifra pod kategorije";
             dgvTrosak.Columns["IdKorisnik"].Visible = false;
-            dgvTrosak.Columns["IDKategorijaTrosak"].DisplayIndex = 0;
-            dgvTrosak.Columns["IDKategorijaTrosak"].HeaderText = "Šifra kategorije";
-
+            
+            
 
         }
 
@@ -137,7 +140,11 @@ namespace Shparfin
 
         private void btnAzurirajTrosak_Click(object sender, EventArgs e)
         {
-            Trosak updatedTrosak = dgvTrosak.CurrentRow.DataBoundItem as Trosak;   
+            Trosak updatedTrosak = dgvTrosak.CurrentRow.DataBoundItem as Trosak;
+            FrmAzurirajTrosak frmAzurirajTrosak = new FrmAzurirajTrosak(updatedTrosak);
+            frmAzurirajTrosak.ShowDialog();
+            ShowTroskove();
+            dgvTrosak.Refresh();
             
         }
 
@@ -147,7 +154,15 @@ namespace Shparfin
             FrmDodajTrosak frmDodajTrosak = new FrmDodajTrosak();
 
             // Display the FrmDodajTrosak form
-            frmDodajTrosak.Show();
+            frmDodajTrosak.ShowDialog();
+
+            ShowTroskove();
+            dgvTrosak.Refresh();
+        }
+
+        public void btnLogout_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
